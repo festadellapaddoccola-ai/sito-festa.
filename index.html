@@ -4,307 +4,279 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Festa della Paddoccola - Alfano</title>
+    <!-- Importazione font stile hand-made/fumetto e icone -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Fredoka:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
+    
     <style>
-        /* Reset e Stili Generali */
+        /* Reset generali */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #FF0000 0%, #b30000 100%);
+            background-color: #FF0000;
             color: #ffffff;
-            line-height: 1.6;
+            font-family: 'Open Sans', sans-serif;
+            overflow-x: hidden;
         }
 
-        /* Navigazione */
-        header {
-            background-color: rgba(0, 0, 0, 0.8);
-            position: fixed;
+        /* Schermata Iniziale (Stile Immagine) */
+        .hero-section {
+            height: 100vh;
             width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px 20px;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #FFD700;
-            text-transform: uppercase;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #FFD700;
-        }
-
-        /* Sezione Hero / Copertina */
-        .hero {
-            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding-left: 10%;
+            position: relative;
+            background-color: #FF0000;
+        }
+
+        /* Font in stile fumetto/pennarello come l'immagine */
+        .title-container {
+            font-family: 'Fredoka', sans-serif;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .title-top {
+            font-size: 2.5rem;
+            display: block;
+        }
+
+        .title-main {
+            font-size: 5rem;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        .date-info {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+
+        /* Icone Social Tonde */
+        .social-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            display: flex;
             align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            margin-top: 60px;
-            background: rgba(0,0,0,0.2);
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background 0.3s, color 0.3s;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            color: #FFD700;
-            text-shadow: 3px 3px 0px #000;
-            margin-bottom: 10px;
+        .social-icon:hover {
+            background-color: #ffffff;
+            color: #FF0000;
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            font-weight: 300;
-            max-width: 600px;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        /* Freccia verso il basso */
+        .scroll-arrow {
+            width: 45px;
+            height: 45px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            animation: bounce 2s infinite;
         }
 
-        /* Contenitori Principali */
-        .container {
-            max-width: 1000px;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Sezioni di Contenuto (Sotto la copertina) */
+        .content-container {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 80px 20px;
         }
 
         section {
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            padding: 40px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 70px;
         }
 
         h2 {
-            font-size: 2.2rem;
-            color: #FFD700;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #FFD700;
-            padding-bottom: 10px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2.5rem;
             text-transform: uppercase;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #ffffff;
+            padding-bottom: 10px;
         }
 
         p {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
         }
 
-        /* Menu / Listino Prezzi */
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+        /* Menu stilizzato in linea con la grafica pulita */
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
         }
 
-        .menu-item {
-            background-color: rgba(0, 0, 0, 0.4);
-            padding: 20px;
-            border-radius: 10px;
+        .menu-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            border-left: 5px solid #FFD700;
-        }
-
-        .menu-name {
-            font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.4);
+            padding-bottom: 8px;
         }
 
         .menu-price {
-            color: #FFD700;
-            font-weight: bold;
-            font-size: 1.3rem;
-            background-color: rgba(255,255,255,0.1);
-            padding: 5px 10px;
-            border-radius: 5px;
+            font-family: 'Fredoka', sans-serif;
         }
 
-        /* Programma e Info */
-        .info-list {
-            list-style: none;
+        /* Info utili */
+        .info-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
 
-        .info-list li {
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-            font-size: 1.1rem;
-        }
-
-        .info-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #FFD700;
-            font-weight: bold;
-            font-size: 1.2rem;
+        .info-box p {
+            margin-bottom: 10px;
+            font-weight: 600;
         }
 
         /* Footer */
         footer {
-            background-color: #000;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
-            font-size: 0.9rem;
-            color: #aaa;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 1rem;
+            opacity: 0.8;
         }
 
-        footer a {
-            color: #FFD700;
-            text-decoration: none;
-        }
-
-        /* Responsività per Smartphone */
+        /* Adattamento per Smartphone */
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 10px;
+            .hero-section {
+                padding-left: 20px;
             }
-            nav ul li {
-                margin: 0 10px;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            section {
-                padding: 20px;
-            }
+            .title-top { font-size: 1.8rem; }
+            .title-main { font-size: 3.2rem; }
+            .date-info { font-size: 1.4rem; }
+            h2 { font-size: 2rem; }
+            .menu-row { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Barra di Navigazione -->
-    <header>
-        <div class="nav-container">
-            <div class="logo">Festa della Paddoccola</div>
-            <nav>
-                <ul>
-                    <li><a href="#storia">La Storia</a></li>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#programma">Info & Programma</a></li>
-                    <li><a href="#dove">Dove Siamo</a></li>
-                </ul>
-            </nav>
+    <!-- COPPERTINA (Uguale alla tua immagine) -->
+    <div class="hero-section">
+        <div class="title-container">
+            <span class="title-top">Alfano <span style="font-size: 3rem;">Festa</span> della</span>
+            <span class="title-main">Paddoccola</span>
         </div>
-    </header>
+        
+        <div class="date-info">
+            12-13 Agosto, Ore 20:00
+        </div>
 
-    <!-- Copertina -->
-    <div class="hero">
-        <h1>Festa della Paddoccola</h1>
-        <p>Tradizione, gusto e storia nel cuore del borgo di Alfano</p>
+        <div class="social-container">
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="mailto:info@esempio.com" class="social-icon" aria-label="Email"><i class="far fa-envelope"></i></a>
+        </div>
+
+        <a href="#storia" class="scroll-arrow" aria-label="Scorri verso il basso">
+            <i class="fas fa-arrow-down"></i>
+        </a>
     </div>
 
-    <!-- Contenuto Principale -->
-    <div class="container">
+    <!-- CONTENUTI PAGINA (Scorrendo verso il basso) -->
+    <div class="content-container">
 
-        <!-- Sezione Storia -->
+        <!-- Storia -->
         <section id="storia">
             <h2>La Nostra Storia</h2>
             <p>La Paddoccola nasce nelle famiglie contadine di Alfano come espressione di cucina "povera". Il segreto del gusto e la consistenza è nell'utilizzo di prodotti locali, con una qualità eccellente e genuina.</p>
-            <p>La paddoccola viene lavorata esclusivamente a mano, tramandando la ricetta di generazione in generazione.</p>
-            <p>La festa è nata con un obiettivo nobile: salvaguardare questo nostro pezzo di storia culinaria affinché non andasse perduto, promuovendo allo stesso tempo la bellezza del piccolo e accogliente borgo di Alfano!</p>
+            <p>La paddoccola viene lavorata esclusivamente a mano.</p>
+            <p>La festa è nata con un obiettivo nobile, salvaguardare questo nostro pezzo di storia culinaria affinchè non andasse perduto, promuovendo allo stesso tempo la bellezza del piccolo borgo di Alfano!</p>
         </section>
 
-        <!-- Sezione Menu -->
+        <!-- Menu -->
         <section id="menu">
-            <h2>Il Menu della Festa</h2>
-            <p>Tutti i piatti sono preparati al momento con ingredienti a km zero.</p>
-            
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <span class="menu-name">Paddoccole (5 pezzi)</span>
-                    <span class="menu-price">€ 4,00</span>
+            <h2>Menu Stand</h2>
+            <div class="menu-list">
+                <div class="menu-row">
+                    <span>PADDOCCOLE (5 PEZZI)</span>
+                    <span class="menu-price">€ 4.00</span>
                 </div>
-                <div class="menu-item">
-                    <span class="menu-name">Ciaurieddu</span>
-                    <span class="menu-price">€ 5,00</span>
+                <div class="menu-row">
+                    <span>CIAURIEDDU</span>
+                    <span class="menu-price">€ 5.00</span>
                 </div>
-                <div class="menu-item">
-                    <span class="menu-name">Panini</span>
-                    <span class="menu-price">€ 4,50</span>
+                <div class="menu-row">
+                    <span>PANINI</span>
+                    <span class="menu-price">€ 4.50</span>
                 </div>
-                <div class="menu-item">
-                    <span class="menu-name">Dolci Vari</span>
-                    <span class="menu-price">€ 2,00</span>
+                <div class="menu-row">
+                    <span>DOLCI VARI</span>
+                    <span class="menu-price">€ 2.00</span>
                 </div>
-                <div class="menu-item">
-                    <span class="menu-name">Birra</span>
-                    <span class="menu-price">€ 2,50</span>
+                <div class="menu-row">
+                    <span>BIRRA</span>
+                    <span class="menu-price">€ 2.50</span>
                 </div>
-                <div class="menu-item">
-                    <span class="menu-name">Coca Cola</span>
-                    <span class="menu-price">€ 2,00</span>
+                <div class="menu-row">
+                    <span>COCA COLA</span>
+                    <span class="menu-price">€ 2.00</span>
                 </div>
-                <div class="menu-item">
-                    <span class="menu-name">Acqua (0.5 L)</span>
-                    <span class="menu-price">€ 2,00</span>
+                <div class="menu-row">
+                    <span>ACQUA 0.5 L</span>
+                    <span class="menu-price">€ 2.00</span>
                 </div>
             </div>
         </section>
 
-        <!-- Sezione Elementi Consigliati (Programma e Info Utili) -->
-        <section id="programma">
-            <h2>Informazioni Utili & Servizi</h2>
-            <ul class="info-list">
-                <li><strong>Musica dal vivo:</strong> Spettacoli di musica popolare e balli tradizionali ogni sera nel borgo.</li>
-                <li><strong>Artigianato locale:</strong> Mercatini con esposizione di prodotti tipici del Cilento.</li>
-                <li><strong>Parcheggio gratuito:</strong> Ampia area di sosta segnalata all'ingresso del paese.</li>
-                <li><strong>Inizio Evento:</strong> Apertura degli stand gastronomici a partire dalle ore 20:00.</li>
-            </ul>
-        </section>
-
-        <!-- Sezione Mappa e Contatti -->
-        <section id="dove">
-            <h2>Come Raggiungerci</h2>
-            <p>Ci troviamo nel bellissimo centro storico di Alfano (SA). Segui le indicazioni per il centro del borgo.</p>
-            <p style="margin-top: 20px; font-weight: bold; color: #FFD700;">Contatti & Social</p>
-            <p>Email: info@comune.alfano.sa.it | Seguici sulle pagine locali per aggiornamenti in tempo reale!</p>
+        <!-- Consigli aggiuntivi integrati con lo stile pulito -->
+        <section id="info">
+            <h2>Info Utili</h2>
+            <div class="info-box">
+                <p>📍 Dove: Centro Storico di Alfano (SA)</p>
+                <p>🚗 Parcheggio: Disponibile all'ingresso del borgo</p>
+                <p>🎶 Intrattenimento: Musica popolare dal vivo nelle piazze</p>
+            </div>
         </section>
 
     </div>
 
-    <!-- Piè di pagina -->
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Festa della Paddoccola - Alfano (SA). Tutti i diritti riservati.</p>
-        <p>Creato per la valorizzazione del territorio e delle tradizioni cilentane.</p>
+        <p>&copy; 2026 Festa della Paddoccola - Alfano (SA)</p>
     </footer>
 
 </body>
